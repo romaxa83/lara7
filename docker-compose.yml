@@ -1,0 +1,70 @@
+version: "3.7"
+services:
+
+  nginx:
+    container_name: ${APP_NAME}_nginx
+    hostname: ${APP_NAME}_nginx
+    build:
+      context: docker
+      dockerfile: dev/nginx/Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - ${DOCKER_BRIDGE}:80:80
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build:
+      context: docker
+      dockerfile: dev/php-fpm/Dockerfile
+    container_name: ${APP_NAME}_php-fpm
+    hostname: ${APP_NAME}_php-fpm
+    environment:
+      TERM: xterm-256color
+    volumes:
+      - ./:/app
+      - ./docker/dev/php/.bashrc:/root/.bashrc
+      - ./docker/dev/php/.bash_aliases:/root/.bash_aliases
+
+  php-cli:
+    build:
+      context: docker
+      dockerfile: dev/php-cli/Dockerfile
+    container_name: ${APP_NAME}_php-cli
+    hostname: ${APP_NAME}_php-cli
+    volumes:
+      - ./:/app
+      - ./docker/dev/php/.bashrc:/root/.bashrc
+      - ./docker/dev/php/.bash_aliases:/root/.bash_aliases
+
+  db:
+    image: postgres:12.1-alpine
+    container_name: ${APP_NAME}_db
+    hostname: ${APP_NAME}_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - ${DOCKER_BRIDGE}:5432:5432
+    volumes:
+      - ./storage/postgresql:/var/lib/postgresql/data
+
+  node:
+    build:
+      context: docker
+      dockerfile: dev/node/Dockerfile
+    container_name: ${APP_NAME}_node
+    hostname: ${APP_NAME}_node
+    volumes:
+      - ./:/app
+    tty: true
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${DOCKER_NETWORK}
