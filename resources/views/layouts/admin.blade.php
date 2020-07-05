@@ -22,6 +22,8 @@
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="/vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="/vendor/toastr/toastr.min.css">
+
+    <link rel="stylesheet" href="/css/tailwind-ui.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

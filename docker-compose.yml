@@ -26,6 +26,8 @@ services:
       - ./:/app
       - ./docker/dev/php/.bashrc:/root/.bashrc
       - ./docker/dev/php/.bash_aliases:/root/.bash_aliases
+    depends_on:
+      - db
 
   php-cli:
     build:
@@ -37,20 +39,40 @@ services:
       - ./:/app
       - ./docker/dev/php/.bashrc:/root/.bashrc
       - ./docker/dev/php/.bash_aliases:/root/.bash_aliases
+    depends_on:
+      - db
 
   db:
-    image: postgres:12.1-alpine
-    container_name: ${APP_NAME}_db
-    hostname: ${APP_NAME}_db
-    restart: always
+    build:
+      context: docker
+      dockerfile: dev/db/Dockerfile
+    image: postgres12-postgis2.5
+    container_name: postgres12-postgis2.5
+    volumes:
+      - ./storage/postgresql:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
     ports:
       - ${DOCKER_BRIDGE}:5432:5432
-    volumes:
-      - ./storage/postgresql:/var/lib/postgresql/data
+
+#  db:
+#    build:
+#      context: docker
+#      dockerfile: dev/db/Dockerfile
+##    image: postgres:12.1-alpine
+#    container_name: ${APP_NAME}_db
+#    hostname: ${APP_NAME}_db
+#    restart: always
+#    environment:
+#      POSTGRES_USER: ${DB_USERNAME}
+#      POSTGRES_PASSWORD: ${DB_PASSWORD}
+#      POSTGRES_DB: ${DB_DATABASE}
+#    ports:
+#      - ${DOCKER_BRIDGE}:5432:5432
+#    volumes:
+#      - ./storage/postgresql:/var/lib/postgresql/data
 
   node:
     build:

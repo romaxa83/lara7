@@ -12,13 +12,32 @@ class UserController extends Controller
     {
         $title = 'Users';
 
+        // подсчитываем статусы
+        if (config('database.default') === 'mysql' || config('database.default') === 'sqlite') {
+            $statuses = User::toBase()
+                ->selectRaw("count(case when status = '0' then 1 end) as count_draw")
+                ->selectRaw("count(case when status = '1' then 1 end) as count_active")
+                ->selectRaw("count(case when status = '2' then 1 end) as count_ban")
+                ->first();
+        }
+
+        if (config('database.default') === 'pgsql') {
+            $statuses = User::toBase()
+                ->selectRaw("count(*) filter (where status = '0') as count_draw")
+                ->selectRaw("count(*) filter (where status = '1') as count_active")
+                ->selectRaw("count(*) filter (where status = '2') as count_ban")
+                ->first();
+        }
+
         $users = User::query()
+            ->orderLastLogin()
             ->withLastLoginAt()
             ->withLastLoginIpAddress()
-            ->with(['profile:user_id,last_name,first_name'])
+            ->with(['profile:user_id,last_name,first_name', 'company'])
+            ->search(request('search'))
             ->notAdmin()
-            ->get();
+            ->paginate();
 
-        return view('admin.user.index', compact('title', 'users'));
+        return view('admin.user.index', compact('title', 'users', 'statuses'));
     }
 }
