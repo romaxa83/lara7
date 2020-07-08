@@ -17,12 +17,12 @@
                         <p>Users</p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.chat-rooms') }}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-comments"></i>--}}
-{{--                        <p>Chat</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.customers') }}" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
+                        <p>Customers</p>
+                    </a>
+                </li>
 {{--                <li class="nav-item">--}}
 {{--                    <a href="{{ route('admin.image') }}" class="nav-link">--}}
 {{--                        <i class="nav-icon fas fa-comments"></i>--}}

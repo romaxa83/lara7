@@ -13,9 +13,9 @@ class CreateRegionsTable extends Migration
      */
     public function up()
     {
-        if (config('database.default') === 'pgsql') {
-            DB::statement('CREATE EXTENSION IF NOT EXISTS postgis');
-        }
+//        if (config('database.default') === 'pgsql') {
+//            DB::statement('CREATE EXTENSION IF NOT EXISTS postgis');
+//        }
 
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
@@ -35,8 +35,8 @@ class CreateRegionsTable extends Migration
     {
         Schema::dropIfExists('regions');
 
-        if (config('database.default') === 'pgsql') {
-            DB::statement('DROP EXTENSION IF EXISTS postgis');
-        }
+//        if (config('database.default') === 'pgsql') {
+//            DB::statement('DROP EXTENSION IF EXISTS postgis');
+//        }
     }
 }

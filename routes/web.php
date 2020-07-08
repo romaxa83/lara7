@@ -29,5 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/users',['uses' => 'Admin\User\UserController@index', 'as' => 'admin.users']);
 //    Route::get('admin/user/create',['uses' => 'Admin\UserController@create', 'as' => 'admin.user.create']);
 
+    Route::get('admin/customers',['uses' => 'Admin\CustomerController@index', 'as' => 'admin.customers']);
+
 });
 

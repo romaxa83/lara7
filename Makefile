@@ -6,6 +6,8 @@
 app_name = lara7
 php_container = ${APP_NAME}_php-fpm
 node_container = ${APP_NAME}_node
+db_container = ${APP_NAME}_db
+postgis_container = ${APP_NAME}_postgis
 #======================================
 
 #=====MAIN_COMMAND=====================
@@ -67,6 +69,12 @@ php_bash:
 
 node_bash:
 	docker exec -it $(node_container) sh
+
+db_bash:
+	docker exec -it $(db_container) sh
+
+postgis_bash:
+	docker exec -it $(postgis_container) bash
 #=======INFO===================================
 
 info:
