@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 //    Route::get('admin/user/create',['uses' => 'Admin\UserController@create', 'as' => 'admin.user.create']);
 
     Route::get('admin/customers',['uses' => 'Admin\CustomerController@index', 'as' => 'admin.customers']);
+    Route::get('admin/stores',['uses' => 'Admin\StoreController@index', 'as' => 'admin.stores']);
 
 });
 

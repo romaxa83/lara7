@@ -23,21 +23,21 @@
                         <p>Customers</p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.image') }}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-comments"></i>--}}
-{{--                        <p>Image</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-                <li class="nav-header">EXAMPLES</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Library
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="{{ route('admin.stores') }}" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
+                        <p>Store</p>
                     </a>
+                </li>
+{{--                <li class="nav-header">EXAMPLES</li>--}}
+{{--                <li class="nav-item has-treeview">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-book"></i>--}}
+{{--                        <p>--}}
+{{--                            Library--}}
+{{--                            <i class="fas fa-angle-left right"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
 {{--                    <ul class="nav nav-treeview">--}}
 {{--                        <li class="nav-item">--}}
 {{--                            <a href="{{ route('admin.books.category') }}" class="nav-link">--}}
@@ -76,19 +76,19 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
 {{--                    </ul>--}}
-                </li>
+{{--                </li>--}}
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Laravel Articles
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+{{--                <li class="nav-item has-treeview">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-book"></i>--}}
+{{--                        <p>--}}
+{{--                            Laravel Articles--}}
+{{--                            <i class="fas fa-angle-left right"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
 
-                </li>
-                <li class="nav-header">Services</li>
+{{--                </li>--}}
+{{--                <li class="nav-header">Services</li>--}}
 
 {{--                <li class="nav-item">--}}
 {{--                    <a href="{{ route('admin.dropbox') }}" class="nav-link" title="Связь с dropbox">--}}
