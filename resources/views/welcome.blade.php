@@ -15,6 +15,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        @livewireStyles
 
     </head>
     <body>
@@ -38,10 +39,9 @@
                     Laravel
                 </div>
 
-
             </div>
         </div>
-
+        @livewireScripts
         <!-- Scripts -->
         <script src="{{ mix('js/app.js', 'build') }}" defer></script>
     </body>

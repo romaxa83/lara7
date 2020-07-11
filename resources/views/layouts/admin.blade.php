@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/vendor/toastr/toastr.min.css">
 
     <link rel="stylesheet" href="/css/tailwind-ui.min.css">
+    @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -45,6 +46,7 @@
             <div class="container-fluid">
                 @yield('breadcrumbs')
                 @include('layouts.partials.flash')
+
                 @yield('content')
             </div>
         </div>
@@ -78,7 +80,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
 <!-- MyScript -->
 <script src="/js/main.js"></script>
-
+@livewireScripts
 
 <!-- OPTIONAL SCRIPTS -->
 {{--<script src="plugins/chart.js/Chart.min.js"></script>--}}
