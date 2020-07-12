@@ -6,7 +6,7 @@
     <title>Larka | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+@livewireStyles
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/vendor/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
@@ -32,6 +32,6 @@
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
 <script src="/vendor/adminlte/dist/js/adminlte.js"></script>
-
+@livewireScripts
 </body>
 </html>
