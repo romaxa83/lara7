@@ -16,9 +16,9 @@ init: down-clear \
  		build up \
 		app-init info
 
-up: up_docker info
+up: up_docker memory info
 
-rebuild: down build up_docker info
+rebuild: down build up_docker memory info
 
 up_docker:
 	docker-compose up -d
@@ -79,6 +79,12 @@ postgis_bash:
 
 info:
 	echo ${APP_URL};
+
+# for elasticsearch
+memory:
+	sudo sysctl -w vm.max_map_count=262144
+
+
 
 
 

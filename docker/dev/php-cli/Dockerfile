@@ -19,8 +19,8 @@ COPY ./dev/php/conf.d /usr/local/etc/php/conf.d
 
 # копируем и делаем исполняемым bash-скрипт, который будет ждать поднятие бд
 # и после работать с ней
-COPY ./dev/php/wait-for-it.sh /usr/local/bin/wait-for-it
-RUN chmod 555 /usr/local/bin/wait-for-it
+#COPY ./dev/php/wait-for-it.sh /usr/local/bin/wait-for-it
+#RUN chmod 555 /usr/local/bin/wait-for-it
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
