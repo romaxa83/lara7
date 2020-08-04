@@ -70,35 +70,65 @@ services:
       - ./:/app
     tty: true
 
-  elasticserarch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
-    container_name: ${APP_NAME}_elasticsearch
-    hostname: ${APP_NAME}_elasticsearch
-    environment:
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    restart: always
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+  #https://github.com/deviantony/docker-elk
+  elasticsearch:
+    build:
+      context: docker/dev/elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
     volumes:
+      - type: bind
+        source: ./docker/dev/elasticsearch/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
       - ./storage/elastic:/usr/share/elasticsearch/data
     ports:
       - ${DOCKER_BRIDGE}:9200:9200
+      - ${DOCKER_BRIDGE}:9300:9300
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: changeme
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks
+      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.8.8
-    container_name: ${APP_NAME}_kibana
-    hostname: ${APP_NAME}_kibana
-    restart: always
-    environment:
-#      SERVER_NAME: localhost
-      ELASTICSEARCH_URL: http://${DOCKER_BRIDGE}:9200/
+    build:
+      context: docker/dev/kibana/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - type: bind
+        source: ./docker/dev/kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
     ports:
       - ${DOCKER_BRIDGE}:5601:5601
-    links:
-      - elasticserarch
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    build:
+      context: docker/dev/logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - type: bind
+        source: ./docker/dev/logstash/config/logstash.yml
+        target: /usr/share/logstash/config/logstash.yml
+        read_only: true
+      - type: bind
+        source: ./docker/dev/logstash/pipeline
+        target: /usr/share/logstash/pipeline
+        read_only: true
+    ports:
+      - ${DOCKER_BRIDGE}:5000:5000/tcp
+      - ${DOCKER_BRIDGE}:5000:5000/udp
+      - ${DOCKER_BRIDGE}:9600:9600
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    depends_on:
+      - elasticsearch
 
 networks:
   default:
