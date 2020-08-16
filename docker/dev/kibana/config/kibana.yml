@@ -15,5 +15,5 @@ xpack.ml.enabled: 'false'
 
 ## X-Pack security credentials
 #
-elasticsearch.username: elastic
-elasticsearch.password: changeme
+#elasticsearch.username: elastic
+#elasticsearch.password: changeme

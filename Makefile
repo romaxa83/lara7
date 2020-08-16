@@ -8,13 +8,14 @@ php_container = ${APP_NAME}_php-fpm
 node_container = ${APP_NAME}_node
 db_container = ${APP_NAME}_db
 postgis_container = ${APP_NAME}_postgis
+logstash_container = ${APP_NAME}_postgis
 #======================================
 
 #=====MAIN_COMMAND=====================
 
 init: down-clear \
  		build up \
-		app-init info
+# 		app-init info
 
 up: up_docker memory info
 
@@ -72,6 +73,9 @@ node_bash:
 
 db_bash:
 	docker exec -it $(db_container) sh
+
+logstash_bash:
+	docker exec -it $(db_container) bash
 
 postgis_bash:
 	docker exec -it $(postgis_container) bash

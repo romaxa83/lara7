@@ -72,6 +72,8 @@ services:
 
   #https://github.com/deviantony/docker-elk
   elasticsearch:
+    container_name: ${APP_NAME}_elasticsearch
+    hostname: ${APP_NAME}_elasticsearch
     build:
       context: docker/dev/elasticsearch/
       args:
@@ -87,12 +89,14 @@ services:
       - ${DOCKER_BRIDGE}:9300:9300
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      ELASTIC_PASSWORD: changeme
+#      ELASTIC_PASSWORD: changeme
       # Use single node discovery in order to disable production mode and avoid bootstrap checks
       # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
 
   kibana:
+    container_name: ${APP_NAME}_kibana
+    hostname: ${APP_NAME}_kibana
     build:
       context: docker/dev/kibana/
       args:
@@ -108,6 +112,8 @@ services:
       - elasticsearch
 
   logstash:
+    container_name: ${APP_NAME}_logstash
+    hostname: ${APP_NAME}_logstash
     build:
       context: docker/dev/logstash/
       args:
@@ -121,6 +127,7 @@ services:
         source: ./docker/dev/logstash/pipeline
         target: /usr/share/logstash/pipeline
         read_only: true
+      - ./docker/dev/data:/data
     ports:
       - ${DOCKER_BRIDGE}:5000:5000/tcp
       - ${DOCKER_BRIDGE}:5000:5000/udp

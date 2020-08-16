@@ -47,7 +47,7 @@ class CreateAdmin extends Command
     public function handle()
     {
         if(User::where('email', $this->email)->count()){
-            $this->info('Admin is exists');
+            $this->warn('Admin is exists');
             return;
         }
         $admin = new User();
