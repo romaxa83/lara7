@@ -9,6 +9,7 @@ node_container = ${APP_NAME}_node
 db_container = ${APP_NAME}_db
 postgis_container = ${APP_NAME}_postgis
 logstash_container = ${APP_NAME}_postgis
+redis_container = ${APP_NAME}_redis
 #======================================
 
 #=====MAIN_COMMAND=====================
@@ -79,10 +80,16 @@ logstash_bash:
 
 postgis_bash:
 	docker exec -it $(postgis_container) bash
+
+redis_bash:
+	docker exec -it $(redis_container) sh
 #=======INFO===================================
 
 info:
 	echo ${APP_URL};
+	echo ELASTICSEARCH ${APP_URL}:${ELASTIC_PORT};
+	echo KIBANA ${APP_URL}:${KIBABA_PORT};
+	echo LOGSTASH ${APP_URL}:${LOGSTASH_PORT};
 
 # for elasticsearch
 memory:

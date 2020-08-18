@@ -25,33 +25,14 @@ class ElasticInfo extends ElasticBase
             case 'check':
                 $this->check();
                 break;
-//            case 'schema':
-//                $this->schema();
-//
-//                break;
+            case 'schema':
+                $this->schema();
+
+                break;
             case 'status':
                 $this->status();
                 break;
 
-//            case 'stats':
-//                $this->stats();
-//
-//                break;
-//
-//            case 'health':
-//                $this->health();
-//
-//                break;
-//
-//            case 'nodes':
-//                $this->nodes();
-//
-//                break;
-//
-//            case 'index':
-//                $this->index();
-//
-//                break;
             default:
                 $this->error($this->argument('type') . ' type does not exist, try one one thoses : check, schema, status');
                 break;
@@ -69,39 +50,23 @@ class ElasticInfo extends ElasticBase
         return;
     }
 
+    private function schema()
+    {
+        if($this->client->ping()){
+            $result = $this->client->indices()->getMapping();
+            dd($result);
+        }
+        $this->error('Connection fail');
+        return;
+    }
+
     private function status()
     {
         $result = $this->request("/_cat/indices?v");
 
         echo $result;
     }
-////
-////    private function health()
-////    {
-////        $this->request("{$this->url}/_cat/health?v");
-////    }
-////
-////    private function nodes()
-////    {
-////        $this->request("{$this->url}/_nodes?pretty=true");
-////    }
-////
-////    private function index()
-////    {
-////        $main = $this->getMain();
-////
-////        $this->request("{$this->url}/{$main->getIndex()}?pretty=true");
-////    }
-////
-////    private function schema()
-////    {
-////        if($main = $this->getMain()){
-////
-////            $url = $this->url . '/' . $main->index . '/' . $main->type . '/_mapping?pretty=true';
-////            $this->request($url);
-////        }
-////    }
-////
+
     private function stats()
     {
         $result = $this->request('/_all/_stats?pretty=true');
