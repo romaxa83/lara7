@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('admin/customers',['uses' => 'Admin\CustomerController@index', 'as' => 'admin.customers']);
     Route::get('admin/stores',['uses' => 'Admin\StoreController@index', 'as' => 'admin.stores']);
+    Route::get('admin/posts',['uses' => 'Admin\PostController@index', 'as' => 'admin.posts']);
 
     //Liveware - testing
     Route::get('admin/livewire/test-form',['uses' => 'Admin\LivewireController@testForm', 'as' => 'admin.livewire.test-form']);

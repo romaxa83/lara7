@@ -19,14 +19,20 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.customers') }}" class="nav-link">
-                        <i class="nav-icon fas fa-comments"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>Customers</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.stores') }}" class="nav-link">
-                        <i class="nav-icon fas fa-comments"></i>
+                        <i class="nav-icon fas fa-store"></i>
                         <p>Store</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.posts') }}" class="nav-link">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Posts</p>
                     </a>
                 </li>
                 <li class="nav-header">Liveware</li>
