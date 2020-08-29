@@ -31,7 +31,7 @@ class PostController extends Controller
                 $query->latest('published_at');
             })
             ->paginate();
-//dd($posts);
+
         return view('admin.post.index', ['posts' => $posts]);
     }
 }

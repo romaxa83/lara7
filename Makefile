@@ -90,6 +90,7 @@ info:
 	echo ELASTICSEARCH ${APP_URL}:${ELASTIC_PORT};
 	echo KIBANA ${APP_URL}:${KIBABA_PORT};
 	echo LOGSTASH ${APP_URL}:${LOGSTASH_PORT};
+	echo RABBITMQ ${APP_URL}:15672;
 
 # for elasticsearch
 memory:
