@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('pipeline', [\App\Http\Controllers\Api\PipelineController::class, 'pipeline'])->name('api.pipeline');
+Route::post('hub', [\App\Http\Controllers\Api\PipelineController::class, 'hub'])->name('api.hub');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

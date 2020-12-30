@@ -86,19 +86,19 @@ services:
       - '--save 60 10000'
       - '--requirepass secret'
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: ${APP_NAME}_rabbitmq
-    hostname: ${APP_NAME}_rabbitmq
-    environment:
-      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_USER}
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
-    ports:
-      - ${DOCKER_BRIDGE}:15672:15672
-      - ${DOCKER_BRIDGE}:${RABBITMQ_PORT}:${RABBITMQ_PORT}
-    volumes:
-      - ./docker/dev/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    container_name: ${APP_NAME}_rabbitmq
+#    hostname: ${APP_NAME}_rabbitmq
+#    environment:
+#      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_USER}
+#      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+#      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+#    ports:
+#      - ${DOCKER_BRIDGE}:15672:15672
+#      - ${DOCKER_BRIDGE}:${RABBITMQ_PORT}:${RABBITMQ_PORT}
+#    volumes:
+#      - ./docker/dev/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
 
   #https://github.com/deviantony/docker-elk
 #  elasticsearch:
