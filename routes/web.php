@@ -28,7 +28,7 @@ Route::livewire('/login-admin', 'auth.login')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('patterns/composite',['uses' => 'Patterns\CompositeController@index', 'as' => 'patterns.composite']);
 
 
 Route::middleware('auth')->group(function () {
