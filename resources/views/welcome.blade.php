@@ -38,7 +38,11 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+                <ul>
+                    <li><a href="{{route('patterns.composite')}}">Pattern composite</a></li>
+                    <li><a href="{{route('patterns.adapter')}}">Pattern adapter</a></li>
+                    <li><a href="{{route('patterns.decorator')}}">Pattern decorator</a></li>
+                </ul>
             </div>
         </div>
         @livewireScripts

@@ -29,6 +29,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('patterns/composite',['uses' => 'Patterns\CompositeController@index', 'as' => 'patterns.composite']);
+Route::get('patterns/adapter',['uses' => 'Patterns\AdapterController@index', 'as' => 'patterns.adapter']);
+Route::get('patterns/decorator',['uses' => 'Patterns\DecoratorController@index', 'as' => 'patterns.decorator']);
 
 
 Route::middleware('auth')->group(function () {
