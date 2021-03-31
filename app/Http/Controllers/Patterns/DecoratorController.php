@@ -10,6 +10,8 @@ use App\Patterns\Adapter\Interfaces\MediaLibraryInterface;
 use App\Patterns\Composite\Orders\OrderPriceComposite;
 use App\Patterns\Decorator\Classes\OrderUpdate;
 use App\Patterns\Decorator\Classes\OrderUpdateWeb;
+use App\Patterns\Decorator\DecoratorApp;
+use App\Patterns\Decorator\DecoratorAppSettings;
 use App\Patterns\Decorator\Decorators\OrderUpdateDecorators\OrderUpdateDecoratorLogger;
 use App\Patterns\Decorator\Decorators\OrderUpdateDecorators\OrderUpdateDecoratorNotifierManagers;
 use App\Patterns\Decorator\Decorators\OrderUpdateDecorators\OrderUpdateDecoratorNotifierUsers;
@@ -22,27 +24,9 @@ class DecoratorController extends Controller
     {
         $name = 'Декоратор';
 
-
-        $order = new Order();
-        $orderData = [];
-        $updateOrderObj = $this->getUpdateOrderObj();
-
-        $updateOrderObj->run($order, $orderData);
+//        (new DecoratorApp())->run();
+        (new DecoratorAppSettings())->run();
 
         return view('patterns.decorator.index');
-    }
-
-    private function getUpdateOrderObj(): OrderUpdateInterface
-    {
-        //создаем наш базовый класс и оборачиваем его в декоратор для логирования
-        // простой вариант
-//        return new OrderUpdateDecoratorLogger(new OrderUpdate());
-
-        // вложеные декораторы
-//        $orderUpdateLogger = new OrderUpdateDecoratorLogger(new OrderUpdate());
-//        $orderUpdateNotifierManagers = new OrderUpdateDecoratorNotifierManagers($orderUpdateLogger);
-//        return new OrderUpdateDecoratorNotifierUsers($orderUpdateNotifierManagers);
-
-        return new OrderUpdateWeb();
     }
 }
