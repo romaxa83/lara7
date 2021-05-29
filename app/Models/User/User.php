@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Livewire\Testing\Concerns\HasFunLittleUtilities;
 
 /**
  * @property int $id
@@ -73,6 +74,21 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->profile->first_name} {$this->profile->last_name}";
+    }
+
+    public function departmentName()
+    {
+        $departments = [
+            'florist',
+            'logist',
+            'courierHiking',
+            'courierAuto',
+            'courierAutoNight'
+        ];
+
+        $key = array_rand($departments);
+
+        return $departments[$key];
     }
 
     // relation

@@ -42,6 +42,7 @@
                     <li><a href="{{route('patterns.composite')}}">Pattern composite</a></li>
                     <li><a href="{{route('patterns.adapter')}}">Pattern adapter</a></li>
                     <li><a href="{{route('patterns.decorator')}}">Pattern decorator</a></li>
+                    <li><a href="{{route('patterns.strategy')}}">Pattern strategy</a></li>
                 </ul>
             </div>
         </div>
