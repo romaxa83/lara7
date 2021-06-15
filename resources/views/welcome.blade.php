@@ -10,7 +10,7 @@
         <!-- Styles -->
         <link href="{{ mix('css/app.css', 'build') }}" rel="stylesheet">
 
-        <title>Laravel</title>
+        <title>{{$title ?? ''}}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -19,6 +19,7 @@
 
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -39,11 +40,14 @@
                     Laravel
                 </div>
                 <ul>
+                    <li><a href="{{route('patterns.delegation')}}">Pattern delegation</a></li>
                     <li><a href="{{route('patterns.composite')}}">Pattern composite</a></li>
                     <li><a href="{{route('patterns.adapter')}}">Pattern adapter</a></li>
                     <li><a href="{{route('patterns.decorator')}}">Pattern decorator</a></li>
                     <li><a href="{{route('patterns.strategy')}}">Pattern strategy</a></li>
                     <li><a href="{{route('patterns.abstract-factory', ['type' => \App\Patterns\AbstractFactory\GuiKitFactory::TYPE_BOOTSTRAP])}}">Pattern Abstract factory</a></li>
+                    <li><a href="{{route('patterns.factory-method')}}">Pattern Factory method</a></li>
+                    <li><a href="{{route('patterns.static-factory')}}">Pattern Static factory</a></li>
                 </ul>
             </div>
         </div>

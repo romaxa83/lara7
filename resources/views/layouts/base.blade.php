@@ -14,6 +14,8 @@
     @livewireStyles
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.2.3/dist/trix.css">
+
+    <title>{{$title ?? ''}}</title>
 </head>
 <body class="antialiased font-sans bg-gray-200">
     @yield('content')

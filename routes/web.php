@@ -28,11 +28,14 @@ Route::livewire('/login-admin', 'auth.login')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('patterns/delegation',['uses' => 'Patterns\DelegationController@index', 'as' => 'patterns.delegation']);
 Route::get('patterns/composite',['uses' => 'Patterns\CompositeController@index', 'as' => 'patterns.composite']);
 Route::get('patterns/adapter',['uses' => 'Patterns\AdapterController@index', 'as' => 'patterns.adapter']);
 Route::get('patterns/decorator',['uses' => 'Patterns\DecoratorController@index', 'as' => 'patterns.decorator']);
 Route::get('patterns/strategy',['uses' => 'Patterns\StrategyController@index', 'as' => 'patterns.strategy']);
 Route::get('patterns/abstract-factory/{type}',['uses' => 'Patterns\AbstractFactoryController@index', 'as' => 'patterns.abstract-factory']);
+Route::get('patterns/factory-method',['uses' => 'Patterns\FactoryMethodController@index', 'as' => 'patterns.factory-method']);
+Route::get('patterns/static-factory',['uses' => 'Patterns\StaticFactoryController@index', 'as' => 'patterns.static-factory']);
 
 
 Route::middleware('auth')->group(function () {
