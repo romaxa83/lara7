@@ -43,6 +43,7 @@
                     <li><a href="{{route('patterns.adapter')}}">Pattern adapter</a></li>
                     <li><a href="{{route('patterns.decorator')}}">Pattern decorator</a></li>
                     <li><a href="{{route('patterns.strategy')}}">Pattern strategy</a></li>
+                    <li><a href="{{route('patterns.abstract-factory', ['type' => \App\Patterns\AbstractFactory\GuiKitFactory::TYPE_BOOTSTRAP])}}">Pattern Abstract factory</a></li>
                 </ul>
             </div>
         </div>

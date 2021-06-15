@@ -32,6 +32,7 @@ Route::get('patterns/composite',['uses' => 'Patterns\CompositeController@index',
 Route::get('patterns/adapter',['uses' => 'Patterns\AdapterController@index', 'as' => 'patterns.adapter']);
 Route::get('patterns/decorator',['uses' => 'Patterns\DecoratorController@index', 'as' => 'patterns.decorator']);
 Route::get('patterns/strategy',['uses' => 'Patterns\StrategyController@index', 'as' => 'patterns.strategy']);
+Route::get('patterns/abstract-factory/{type}',['uses' => 'Patterns\AbstractFactoryController@index', 'as' => 'patterns.abstract-factory']);
 
 
 Route::middleware('auth')->group(function () {
