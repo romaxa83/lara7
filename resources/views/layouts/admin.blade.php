@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="/vendor/toastr/toastr.min.css">
 
     <link rel="stylesheet" href="/css/tailwind-ui.min.css">
+    <link rel="stylesheet" href="https://tailwindui.com/css/components-v2.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer=""></script>
     @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">

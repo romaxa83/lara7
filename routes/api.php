@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('pipeline', [\App\Http\Controllers\Api\PipelineController::class, 'pipeline'])->name('api.pipeline');
 Route::post('hub', [\App\Http\Controllers\Api\PipelineController::class, 'hub'])->name('api.hub');
 Route::post('export-csv', [\App\Http\Controllers\Api\UserController::class, 'export'])->name('api.user.export-csv');
+Route::get('customers', [\App\Http\Controllers\Api\CustomerController::class, 'list'])->name('api.customers.list');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

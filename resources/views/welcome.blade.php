@@ -49,6 +49,9 @@
                     <li><a href="{{route('patterns.factory-method')}}">Pattern Factory method</a></li>
                     <li><a href="{{route('patterns.static-factory')}}">Pattern Static factory</a></li>
                 </ul>
+                <ul>
+                    <li><a href="{{route('site.tailwind.index')}}">Tailwind</a></li>
+                </ul>
             </div>
         </div>
         @livewireScripts

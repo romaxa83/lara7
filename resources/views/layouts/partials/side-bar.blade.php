@@ -35,6 +35,39 @@
                         <p>Posts</p>
                     </a>
                 </li>
+
+                {{--Tailwind--}}
+                <li class="nav-header">Tailwind</li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Tailwind
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('tailwind.category.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{ route('tailwind.component.index') }}" class="nav-link">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>Component</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.template.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Template</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-header">Liveware</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

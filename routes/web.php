@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Tailwind;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,8 +38,12 @@ Route::get('patterns/abstract-factory/{type}',['uses' => 'Patterns\AbstractFacto
 Route::get('patterns/factory-method',['uses' => 'Patterns\FactoryMethodController@index', 'as' => 'patterns.factory-method']);
 Route::get('patterns/static-factory',['uses' => 'Patterns\StaticFactoryController@index', 'as' => 'patterns.static-factory']);
 
+Route::get('tailwinds',['uses' => 'Site\Tailwind\TailwindController@index', 'as' => 'site.tailwind.index']);
+Route::get('tailwinds-components/{slug}',['uses' => 'Site\Tailwind\TailwindController@componentList', 'as' => 'site.tailwind.components.list']);
+
 
 Route::middleware('auth')->group(function () {
+
 
     Route::get('admin',['uses' => 'Admin\HomeController@index', 'as' => 'admin.home']);
 
@@ -53,5 +58,32 @@ Route::middleware('auth')->group(function () {
     //Liveware - testing
     Route::get('admin/livewire/test-form',['uses' => 'Admin\LivewireController@testForm', 'as' => 'admin.livewire.test-form']);
 
+    Route::get('admin/tailwind-category', [Tailwind\CategoryController::class, 'index'])
+        ->name('tailwind.category.index');
+    Route::get('admin/tailwind-category/create', [Tailwind\CategoryController::class, 'create'])
+        ->name('tailwind.category.create');
+    Route::post('admin/tailwind-category/create', [Tailwind\CategoryController::class, 'store'])
+        ->name('tailwind.category.store');
+
+    Route::get('admin/tailwind-component', [Tailwind\ComponentController::class, 'index'])
+        ->name('tailwind.component.index');
+    Route::get('admin/tailwind/component/create', [Tailwind\ComponentController::class, 'create'])
+        ->name('admin.component.create');
+    Route::post('admin/tailwind/component/create', [Tailwind\ComponentController::class, 'store'])
+        ->name('admin.component.store');
+
+
+    Route::get('admin/tailwind/template', [Tailwind\TemplateController::class, 'index'])
+        ->name('admin.template.index');
+    Route::get('admin/tailwind/template/create', [Tailwind\TemplateController::class, 'create'])
+        ->name('admin.template.create');
+    Route::post('admin/tailwind/template/create', [Tailwind\TemplateController::class, 'store'])
+        ->name('admin.template.store');
+    Route::get('admin/tailwind/template/edit/{id}', [Tailwind\TemplateController::class, 'edit'])
+        ->name('admin.template.edit');
+    Route::post('admin/tailwind/template/edit/{id}', [Tailwind\TemplateController::class, 'update'])
+        ->name('admin.template.update');
+    Route::get('admin/tailwind/template/delete/{id}', [Tailwind\TemplateController::class, 'delete'])
+        ->name('admin.template.delete');
 });
 
