@@ -52,7 +52,7 @@
                                 <div class="max-w-8xl mx-auto">
 
                                     @foreach($model->components as $item)
-                                        <p>{{$item->name}}</p>
+                                        <p>{{$item->name}} {{ $item->desc ?'('. $item->desc .')' : null }}</p>
                                         <div id="component-{{$item->id}}"
                                              x-data="{ activeTab: 'preview' }"
                                              class="border-b border-t border-gray-200 sm:border sm:rounded-lg overflow-hidden mb-16">

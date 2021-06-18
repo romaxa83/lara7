@@ -71,10 +71,30 @@
                                             </textarea>
                                     </div>
                                     <p class="mt-2 text-sm text-gray-500">
-                                        Brief description for your profile. URLs are hyperlinked.
+                                        A html template
+                                    </p>
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-6">
+                                    <label for="desc" class="block text-sm font-medium text-gray-700">Description</label>
+                                    <input type="text" name="desc" id="desc" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-6">
+                                    <label for="code_vue" class="block text-sm font-medium text-gray-700">Code vue</label>
+                                    <div class="mt-1">
+                                            <textarea id="code_vue" name="code_vue" rows="10"
+                                                      class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                      required>
+                                            </textarea>
+                                    </div>
+                                    <p class="mt-2 text-sm text-gray-500">
+                                        A vue-js template
                                     </p>
                                 </div>
                             </div>
+
+
 
                             <div class="flex justify-end">
                                 <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

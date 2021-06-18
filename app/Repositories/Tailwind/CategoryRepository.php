@@ -11,5 +11,15 @@ class CategoryRepository extends AbstractRepository
     {
         return Category::class;
     }
+
+    public function getLast()
+    {
+        return $this->getAllQuery([], 'position', 'desc')->first();
+    }
+
+    public function existByName($name): bool
+    {
+        return $this->getQuery()->where('name', $name)->exists();
+    }
 }
 

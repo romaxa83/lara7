@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $code
  * @property int $category_id
  * @property int $position
+ * @property string $desc
+ * @property string $code_vue
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */

@@ -18,7 +18,9 @@ class TemplateCreate extends FormRequest
             'name' => ['required', 'string', 'regex:/^[A-z0-9 -]*$/u', 'max:191'],
             'position' => ['nullable'],
             'category_id' => ['required'],
-            'code' => ['required', 'string']
+            'code' => ['required', 'string'],
+            'code_vue' => ['nullable', 'string'],
+            'desc' => ['nullable', 'string']
         ];
     }
 }

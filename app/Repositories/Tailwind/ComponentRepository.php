@@ -11,4 +11,9 @@ class ComponentRepository extends AbstractRepository
     {
         return Component::class;
     }
+
+    public function getLast()
+    {
+        return $this->getAllQuery([], 'position', 'desc')->first();
+    }
 }
