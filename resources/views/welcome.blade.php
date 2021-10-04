@@ -48,6 +48,7 @@
                     <li><a href="{{route('patterns.abstract-factory', ['type' => \App\Patterns\AbstractFactory\GuiKitFactory::TYPE_BOOTSTRAP])}}">Pattern Abstract factory</a></li>
                     <li><a href="{{route('patterns.factory-method')}}">Pattern Factory method</a></li>
                     <li><a href="{{route('patterns.static-factory')}}">Pattern Static factory</a></li>
+                    <li><a href="{{route('patterns.dto')}}">Pattern DTO</a></li>
                 </ul>
                 <ul>
                     <li><a href="{{route('site.tailwind.index')}}">Tailwind</a></li>

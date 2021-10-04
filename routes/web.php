@@ -37,6 +37,7 @@ Route::get('patterns/strategy',['uses' => 'Patterns\StrategyController@index', '
 Route::get('patterns/abstract-factory/{type}',['uses' => 'Patterns\AbstractFactoryController@index', 'as' => 'patterns.abstract-factory']);
 Route::get('patterns/factory-method',['uses' => 'Patterns\FactoryMethodController@index', 'as' => 'patterns.factory-method']);
 Route::get('patterns/static-factory',['uses' => 'Patterns\StaticFactoryController@index', 'as' => 'patterns.static-factory']);
+Route::get('patterns/dto',['uses' => 'Patterns\DtoController@index', 'as' => 'patterns.dto']);
 
 Route::get('tailwinds',['uses' => 'Site\Tailwind\TailwindController@index', 'as' => 'site.tailwind.index']);
 Route::get('tailwinds-components/{slug}',['uses' => 'Site\Tailwind\TailwindController@componentList', 'as' => 'site.tailwind.components.list']);

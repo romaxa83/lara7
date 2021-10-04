@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use App\Collections\CustomerEloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    public function newCollection(array $models = []): CustomerEloquentCollection
+    {
+        return CustomerEloquentCollection::make($models);
+    }
+
     public static function booted()
     {
         static::addGlobalScope(function ($query) {

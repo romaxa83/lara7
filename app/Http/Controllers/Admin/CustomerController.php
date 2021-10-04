@@ -12,7 +12,6 @@ class CustomerController extends Controller
     {
         $customers = \Cache::get('customers');
 
-
         // To find the customers for a specific region:
         $regions = Region::all();
         $customers = Customer::query()
